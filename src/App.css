@@ -1,0 +1,82 @@
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+}
+
+.container{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr auto;
+  grid-template-areas: 
+  "img sidebar"
+  "slider sidebar";
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(33, 33, 39);
+}
+
+.main-img{
+  grid-area: img;
+  background-image: url('./img/sweety.jpeg');
+  height: 100%;
+  width: 100%;
+  background-position: top center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.sidebar{
+  grid-area: sidebar;
+  background-color: rgb(40, 40, 49);
+  border-left: 1px solid rgb(31, 31, 39);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.sidebar-item{
+  color: rgb(209, 213, 218);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: rgb(40, 40, 49);
+  padding: 1rem;
+  position: relative;
+  transition: background-color 150ms;
+}
+
+.sidebar-item:hover, .sidebar-item:focus{
+  background-color: rgb(56, 56, 66);
+}
+
+.sidebar-item.active{
+  background-color: rgb(59, 59, 70);
+}
+
+.sidebar-item::after{
+  content: '';
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  bottom: 0;
+  height: 1px;
+  background-color: rgb(33, 33, 39);
+}
+
+.sidebar-item:last-child::after{
+  display: none;
+}
+
+.slider-container{
+  grid-area: slider;
+  margin-top: 2rem;
+  padding: 2rem;
+}
+
+.slider{
+  width: 100%;
+  cursor: pointer;
+}
